@@ -18,7 +18,7 @@ const schema = Joi.object().keys({
   email: 'pedro@test.com'
 }
 */
-exports.validateUser = (user, callback) => new Promise(function(resolve, reject) {
+exports.validateUser = (user) => new Promise(function(resolve, reject) {
   Joi.validate(user, schema, function (err, value) {
     if(err){
       reject(err);

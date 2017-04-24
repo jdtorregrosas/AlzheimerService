@@ -3,7 +3,7 @@ var validateUser = require('./models/user').validateUser;
 // err === null -> valid
 var testUser = {
   username: 'testuser',
-  password: '1234',
+  password: '123',
   names: 'Pedro',
   lastnames: 'Navajas',
   birthyear: 1998,
