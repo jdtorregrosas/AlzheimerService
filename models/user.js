@@ -1,8 +1,15 @@
 const Joi = require('joi');
 
-const schema = Joi.object().keys({
+const User = Joi.object().keys({
     username: Joi.string().alphanum().min(3).max(30).required(),
     password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
+    names: Joi.string().required(),
+    lastnames: Joi.string().required(),
+    birthyear: Joi.number().integer().min(1900).max(2013),
+    email: Joi.string().email()
+});
+
+const UserWOCredentials = Joi.object().keys({
     names: Joi.string().required(),
     lastnames: Joi.string().required(),
     birthyear: Joi.number().integer().min(1900).max(2013),
@@ -19,7 +26,17 @@ const schema = Joi.object().keys({
 }
 */
 exports.validateUser = (user) => new Promise(function(resolve, reject) {
-  Joi.validate(user, schema, function (err, value) {
+  Joi.validate(user, User, function (err, value) {
+    if(err){
+      reject(err);
+    } else {
+      resolve(value);
+    }
+  });
+});
+
+exports.validateUserWOCredentials = (user) => new Promise(function(resolve, reject) {
+  Joi.validate(user, UserWOCredentials, function (err, value) {
     if(err){
       reject(err);
     } else {
