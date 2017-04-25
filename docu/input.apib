@@ -55,7 +55,7 @@ A User object has the following attributes:
 + Response 200 (application/json)
 
         {
-          "username": "test-user",
+          "username": "testUser",
           "password": "1234",
           "names": "Pedro",
           "lastnames": "Navajas",
@@ -63,7 +63,13 @@ A User object has the following attributes:
           "email": "pedro@test.com"
         }
 
-### Get a user [GET /users/{username}]
++ Response 409 (application/json)
+
+        {
+          "error": "User already exists"
+        }
+
+### Get single user [GET /users/{username}]
 
 + Parameters
     + username: testUser (required, string) - Username of the user
@@ -71,10 +77,47 @@ A User object has the following attributes:
 + Response 200 (application/json)
 
         {
-          "username": "test-user",
+          "username": "testUser",
           "password": "1234",
           "names": "Pedro",
           "lastnames": "Navajas",
           "birthyear": 1998,
           "email": "pedro@test.com"
+        }
+
++ Response 404 (application/json)
+
+        {
+          "error": "User not found"
+        }
+
+### Update a user [PUT /users/{username}]
+
++ Parameters
+    + username: testUser (required, string) - Username of the user
+
++ Request (application/json)
+
+        {
+          "names": "Mateo",
+          "lastnames": "Torregrosa",
+          "birthyear": 1998,
+          "email": "mate@test.com"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "username": "testUser",
+          "password": "1234",
+          "names": "Pedro",
+          "lastnames": "Navajas",
+          "birthyear": 1998,
+          "email": "pedro@test.com"
+        }
+
++ Response 404 (application/json)
+
+        {
+          "error": "User not found"
         }
