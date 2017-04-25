@@ -8,6 +8,8 @@ var firebase = require("firebase-admin");
 var serviceAccount = require("./brein-78ed7-firebase-adminsdk-32ruk-c0cfce67fe.json");
 var validateUser = require('./models/user').validateUser;
 var validateUserWOCredentials = require('./models/user').validateUserWOCredentials;
+var validateAuthUser = require('./models/auth').validateAuthUser;
+var validateChangePassword = require('./models/auth').validateChangePassword;
 
 const Joi = require('joi');
 
@@ -95,40 +97,53 @@ router.route('/users/:username')
 // Authentication
 router.route('/auth')
 .post(function(req, res) {
-  var username = req.body.username;
-  var password = req.body.password;
-  var usersRef = ref.child("users/"+username);
-  usersRef.once("value", function(snapshot) {
-    var passwordEncoded = new Buffer(password).toString('base64');
-    if(snapshot.val().password == passwordEncoded){
-      res.json(snapshot.val());
-    } else {
-      res.status(401).json({error: "Unauthorized"});
-    }
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
+  validateAuthUser(req.body).then((user) => {
+    var username = user.username;
+    var password = user.password;
+    var usersRef = ref.child("users/"+username);
+    usersRef.once("value", function(snapshot) {
+      var passwordEncoded = new Buffer(password).toString('base64');
+      if(snapshot.val() == null){
+        res.status(404).json({error: 'User not found'});
+      } else {
+        if(snapshot.val().password == passwordEncoded){
+          res.json(snapshot.val());
+        } else {
+          res.status(401).json({error: "Unauthorized"});
+        }
+      }
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+      res.status(400).json({error: errorObject});
+    });
+  }).catch((err) => {
+    res.status(400).json({error: err});
   });
 });
 // Change password
 router.route('/changePassword/:username')
 .post(function(req, res) {
   var username = req.params.username;
-  var oldPassword = req.body.oldPassword;
-  var newPassword = req.body.newPassword;
-  var usersRef = ref.child("users/"+username);
-  usersRef.once("value", function(snapshot) {
-    var oldPasswordEncoded = new Buffer(oldPassword).toString('base64');
-    if(snapshot.val().password == oldPasswordEncoded){
-      var users = ref.child("users");
-      var user = snapshot.val();
-      user.password = new Buffer(newPassword).toString('base64');
-      users.child(username).set(user);
-      res.json({status: 'ok'});
-    } else {
-      res.status(401).json({error: "Unauthorized"});
-    }
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
+  validateChangePassword(req.body).then((pass) => {
+    var oldPassword = pass.oldPassword;
+    var newPassword = pass.newPassword;
+    var usersRef = ref.child("users/"+username);
+    usersRef.once("value", function(snapshot) {
+      var oldPasswordEncoded = new Buffer(oldPassword).toString('base64');
+      if(snapshot.val().password == oldPasswordEncoded){
+        var users = ref.child("users");
+        var user = snapshot.val();
+        user.password = new Buffer(newPassword).toString('base64');
+        users.child(username).set(user);
+        res.json({status: 'ok'});
+      } else {
+        res.status(401).json({error: "Unauthorized"});
+      }
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+  }).catch((err) => {
+    res.status(400).json({error: err});
   });
 });
 
