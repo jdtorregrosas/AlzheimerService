@@ -121,3 +121,58 @@ A User object has the following attributes:
         {
           "error": "User not found"
         }
+
+## Auth [/auth]
+
+Handles the authorization with username and password
+
+### Authentifies a user [POST]
+
++ Request (application/json)
+
+        {
+          "username":"testuser",
+          "password":"1234"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "birthyear": 1998,
+          "email": "pedro@test.com",
+          "lastnames": "Navajas",
+          "names": "Pedro",
+          "password": "MTIzNA==",
+          "username": "testuser"
+        }
+
++ Response 401 (application/json)
+
+        {
+          "error": "Unauthorized"
+        }
+
+## Change Password [/changePassword/{username}]
+
+Handles the password change
+
+### Changes the password [POST]
+
++ Request (application/json)
+
+        {
+          "oldPassword":"1234",
+          "newPassword":"test"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "status": "ok"
+        }
+
++ Response 401 (application/json)
+
+        {
+          "error": "Unauthorized"
+        }
