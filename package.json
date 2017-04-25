@@ -2,8 +2,9 @@
   "name": "alzheimer_service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "watch": "nodemon server.js",
     "test": "mocha"
   },
   "repository": {
@@ -17,8 +18,12 @@
   },
   "homepage": "https://github.com/jdtorregrosas/AlzheimerService#readme",
   "dependencies": {
-      "express": "~4.0.0",
-      "mongoose": "~3.6.13",
-      "body-parser": "~1.0.1"
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "firebase-admin": "^4.2.1",
+    "joi": "^10.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
