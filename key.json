@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tpi-alzheimer-android",
+  "private_key_id": "2ee0e04ce6e3a66c839be97a8093015ca5087220",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDyLkzVQcKpO1am\nSbAk9L1n2DG73XMs/qwC8mxew59Qey+lOg7Auyzq/CakqpqBLfE3FQFvb5BoHVGc\ndA5pfPP3iNNWlcm2+wUFsjwgHyZgWzcsDShpiQaweLZ1IOxfeSgSzBbGhhkz1A6z\nzxNAP+t/0S2nVppZnVkELCRLD/WO7/FnwAbYi1mqOAlTiVc/RKG6oujzMwBW4YMG\nrORcck3UD6mue/tJKqpWFQc15o0ASj8QAPYtNofTdVzIt9fMpK2kjhxdm6I3AJWY\ni3QTXCLaD3XHT8I2aJNtuJTMV6//FHa2CueqnlSsLbhjKgK3sbQ19cbcz2sKvrg3\nJJZbZt3vAgMBAAECggEAJNAY6cnHN0ZH05sb5WI2cFSSqsXsvggwSXpkMrt1uhwf\nj/QVTgKlv0p47UrplX1QT1koELJatxjN0QRrNGnEA/qOdXjrYp8hkk4XiaJyiO8U\noeOWIwSrOaP/yCorBBA8oS7Yv3Ce4Bv56Ccv+/I7cABx+h/V8o1SfKnhEm/omcNf\nrLipQC4Pv2ucCqmvPcptzoo+C4XrgCB0B7VGYmaga+liHHM9JsSH4o0/92vLF0XM\nI25D5lcXQiagUFeadguDdq8Ild0vSROo4n9JeAJ4VSOxpYou/r6TOLQO0xcUmBCj\n8zu5iLbLzel8tWmjwuix0YWIYvvZLFJ0Y00Tes+HUQKBgQD+0hxNTMNDJ5TEjTAD\n+7UCGMn2o1h/q0LA7ysYnDvLaqRjtxEH8Lf2e+E9wEjuRVpuFhaepk/lhROb8L/8\nLzdsb/FFr7JkJcs7fB1mSthvMBWjnpZyMP4WrLhQHc63CWOQ3Bsb/xnnYUz+cHdp\nha56ddizRJGXd3coFPk7O/cyIwKBgQDzTTcGQfG4UOdUcYCX/i+Tel/lQ3fZRlI5\n/i/ekeE5NgdcOZSKI58xsQ6QPT3BMGdTVaVIqHzsl4U0QKmdE25YvU+2iMIZ4NI2\nIVwD1KUz58CZBvYmn8Rg6owGNPzTXD6K/Ner5XuS2CFdnnOpD/opTGNWFkG6fXIz\n78Or60ujxQKBgQDwNXqOd8U9wcsgeYOAzb806c9A23xqZTP5EbwLaAOJ3s52XTUF\nyipwhRiwEFnvmpsDWXkbNuXsE8WHY6xm+s+BPgkvys8cTvBE89v2+KkML0TGx5FE\nteBf2ZOpml+p9YTRIlu/yXtOvU9KLxSx+V2ffQW4//NK2EgQFa1X5FBDBwKBgQCI\nOki/6TaF5E7SekbtU7ah1dhRz0gQ0Q4DSK7W6Ul5NiZC3j6sZiuhsCieXJvySr7f\n60mDeEuSUXiU/Eu8FoAnkcBLTSGZSceJ5X3W6z6g5Hdzd3FlyPk05r8GTq7tTW37\ndnzv06swWnG8MJdEJx0D+LB6KDYfTFQgfnRKE5IjnQKBgA5K34gjQMvdnPBjp81W\nnLQSgY7XAXwEiZe2Exza75UMO2LpoIE9/ID+ZkLQJU51fyAY6DEcGERfCCxwA3y0\n2lVWnMQNjIYQ7o1p7sl8krqW1AlyH7IzPStJM/dcydoZKgot3ljzVf9zcy3P5OZ9\nCgJFOgLzLoK3dXlRvPLhnWAE\n-----END PRIVATE KEY-----\n",
+  "client_email": "tpi-alzheimer-android@appspot.gserviceaccount.com",
+  "client_id": "108621620175035473137",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tpi-alzheimer-android%40appspot.gserviceaccount.com"
+}
